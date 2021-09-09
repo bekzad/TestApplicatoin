@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TestApplicatoin</string>
+    <string name="save_btn_str">SAVE</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="photo_description">Photo of a candidate</string>
+    <string name="name_hint">Name</string>
+    <string name="last_name_hint">Surname</string>
+    <string name="company_name">Company Name</string>
+    <string name="position_string">Position</string>
+    <string name="education_str">Education</string>
+    <string name="continue_btn">continue</string>
+    <string name="work_experience_str">Work Experience</string>
+
+
+    <string-array name="education_list">
+        <item>High School</item>
+        <item>Bachelor</item>
+        <item>Master</item>
+        <item>Doctoral</item>
+    </string-array>
 </resources>
