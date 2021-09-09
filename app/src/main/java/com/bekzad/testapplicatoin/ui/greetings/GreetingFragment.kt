@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
@@ -28,6 +29,38 @@ class GreetingFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        // If we are using livedata object with our binding class we must set the lifecycleowner
+        binding.lifecycleOwner = viewLifecycleOwner
+        setUpDropDownMenu()
+    }
+
+    private fun setUpDropDownMenu() {
+        viewModel.dropDownMenu.observe(viewLifecycleOwner, { list ->
+            list?.let {
+                val dropdownAdapter =
+                    ArrayAdapter(requireContext(), R.layout.education_list_item, it)
+                binding.autoCompleteTv.apply {
+                    setAdapter(dropdownAdapter)
+                    setText("High School", false)
+                }
+
+            }
+        })
+
+        viewModel.user.observe(viewLifecycleOwner, { user ->
+            user?.let {
+                binding.autoCompleteTv.apply {
+                    val position = it.education - 1
+                    setText(this.adapter.getItem(position).toString(),
+                        false)
+                }
+            }
+        })
+    }
+
     private fun setupContinueBtn() {
         binding.continueBtn.setOnClickListener {
             transitionToCompaniesFragment()
@@ -38,41 +71,9 @@ class GreetingFragment : Fragment() {
         val companiesFragment = CompaniesFragment.newInstance()
         requireActivity().supportFragmentManager.commit {
             setCustomAnimations(
-                R.anim.slide_in_from_right,
-                0,
-                0,
-                R.anim.slide_out_from_left)
+                R.anim.slide_in_from_right, 0)
             replace(R.id.container, companiesFragment)
-            addToBackStack(null)
         }
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.viewModel = viewModel
-        // If we are using livedata object with our binding class we must set the lifecycleowner
-        binding.lifecycleOwner = viewLifecycleOwner
-        setUpDropDownMenu()
-
-        viewModel.user.observe(viewLifecycleOwner, { user ->
-            user?.apply {
-                println(this.firstName)
-                println(this.education)
-            }
-        })
-
-    }
-
-    private fun setUpDropDownMenu() {
-        viewModel.dropDownMenu.observe(viewLifecycleOwner, { list ->
-            list?.let {
-                val dropdownAdapter =
-                    ArrayAdapter(requireContext(), R.layout.education_list_item, it)
-                binding.autoCompleteTv.setAdapter(dropdownAdapter)
-            }
-        })
-
     }
 
     companion object {

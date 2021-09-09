@@ -60,7 +60,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/first_name_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.user.firstName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +80,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/last_name_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.user.secondName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,8 +99,7 @@
                     android:id="@+id/auto_complete_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:text="@string/education_str" />
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

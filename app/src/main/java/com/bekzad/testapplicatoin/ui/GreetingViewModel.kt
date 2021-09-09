@@ -16,7 +16,7 @@ class GreetingViewModel : ViewModel() {
     val dropDownMenu = MutableLiveData<List<String>>()
 
     // Repository needs to be injected here,
-    // however to keep it simple we just create it here
+    // however to keep it simple I just created it here
     private val repository = RepositoryImpl(FakeDataSource())
 
     init {
@@ -27,5 +27,4 @@ class GreetingViewModel : ViewModel() {
 
         dropDownMenu.value = listOf("High School", "Bachelor", "Master", "Doctoral")
     }
-
 }
