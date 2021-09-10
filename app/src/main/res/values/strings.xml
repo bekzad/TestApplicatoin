@@ -11,11 +11,7 @@
     <string name="continue_btn">continue</string>
     <string name="work_experience_str">Work Experience</string>
 
-
-    <string-array name="education_list">
-        <item>High School</item>
-        <item>Bachelor</item>
-        <item>Master</item>
-        <item>Doctoral</item>
-    </string-array>
+    <!-- Messages -->
+    <string name="set_permissions_in_settings">Go to Settings -> Apps and Notifications ->
+        TestApplication -> App Permissions and grant access to Storage.</string>
 </resources>

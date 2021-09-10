@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import com.bekzad.testapplicatoin.R
-import com.bekzad.testapplicatoin.databinding.GreetingFragmentBinding
-import com.bekzad.testapplicatoin.ui.GreetingViewModel
+import com.bekzad.testapplicatoin.databinding.FragmentGreetingBinding
+import com.bekzad.testapplicatoin.ui.viewmodels.GreetingViewModel
 
 class GreetingFragment : Fragment() {
 
-    private lateinit var binding: GreetingFragmentBinding
+    private lateinit var binding: FragmentGreetingBinding
     private val viewModel by viewModels<GreetingViewModel>()
 
     override fun onCreateView(
@@ -23,7 +22,7 @@ class GreetingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = GreetingFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentGreetingBinding.inflate(inflater, container, false)
         setupContinueBtn()
 
         return binding.root
@@ -72,7 +71,7 @@ class GreetingFragment : Fragment() {
         requireActivity().supportFragmentManager.commit {
             setCustomAnimations(
                 R.anim.slide_in_from_right, 0)
-            replace(R.id.container, companiesFragment)
+            replace(R.id.greeting_fragment_container, companiesFragment)
         }
     }
 

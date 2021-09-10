@@ -1,4 +1,4 @@
-package com.bekzad.testapplicatoin.ui
+package com.bekzad.testapplicatoin.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

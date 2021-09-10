@@ -10,12 +10,11 @@ class GreetingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_greeting)
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
-                replace(R.id.container, GreetingFragment.newInstance())
+                replace(R.id.greeting_fragment_container, GreetingFragment.newInstance())
             }
-
         }
     }
 }
