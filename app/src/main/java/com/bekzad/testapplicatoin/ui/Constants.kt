@@ -1,6 +1,8 @@
 package com.bekzad.testapplicatoin.ui
 
 const val REQUEST_CODE_PERMISSIONS = 100
+const val REQUEST_CODE_IMAGE = 101
+
 
 const val KEY_PERMISSIONS_REQUEST_COUNT = "KEY_PERMISSIONS_REQUEST_COUNT"
 const val MAX_NUMBER_REQUEST_PERMISSIONS = 2
