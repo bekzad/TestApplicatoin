@@ -56,7 +56,6 @@ class CompaniesFragment : Fragment() {
         }
     }
 
-
     companion object {
         fun newInstance() = CompaniesFragment()
     }
